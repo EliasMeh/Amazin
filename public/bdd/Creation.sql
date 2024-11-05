@@ -5,7 +5,7 @@
 -- CREATE USER usera WITH PASSWORD 'azerty';
 -- ALTER USER usera WITH CREATEDB;
 -- exit
--- psql -U usera -c "CREATE DATABASE amazin;"
+-- psql -U usera -d postgres -c "CREATE DATABASE amazin;"
 -- psql -U usera -d amazin -f public/bdd/Creation.sql
 
 
