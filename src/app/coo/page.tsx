@@ -92,8 +92,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> dev1
