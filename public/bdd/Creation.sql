@@ -1,3 +1,14 @@
+-- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+-- brew install postgresql
+--brew services start postgresql
+--psql -U postgres
+-- CREATE USER usera WITH PASSWORD 'azerty';
+-- ALTER USER usera WITH CREATEDB;
+-- exit
+-- psql -U usera -c "CREATE DATABASE amazin;"
+-- psql -U usera -d amazin -f public/bdd/Creation.sql
+
+
 -- Création de la base de données
 CREATE DATABASE amazin;
 
