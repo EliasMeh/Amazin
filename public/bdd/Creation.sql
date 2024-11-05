@@ -68,7 +68,10 @@ INSERT INTO "User" ("mdp", "nom", "prenom", "adresse", "email") VALUES
 INSERT INTO "Produit" ("Nom", "prix", "description", "NomDuVendeur") VALUES
 ('Produit1', 19.99, 'Description du produit 1', 'Vendeur1'),
 ('Produit2', 29.99, 'Description du produit 2', 'Vendeur2'),
-('Produit3', 39.99, 'Description du produit 3', 'Vendeur3');
+('Produit3', 39.99, 'Description du produit 3', 'Vendeur3'),
+('Produit4', 19.99, 'Description du produit 4', 'Vendeur1'),
+('Produit5', 29.99, 'Description du produit 5', 'Vendeur2'),
+('Produit6', 39.99, 'Description du produit 6', 'Vendeur3');
 
 -- Insertion des données dans la table Panier
 INSERT INTO "Panier" ("UserId", "ProduitId", "Quantite") VALUES

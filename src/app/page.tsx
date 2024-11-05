@@ -1,15 +1,15 @@
 'use client'
 import { useEffect, useState } from 'react';
-import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { CardHeader, CardFooter, CardBody, Avatar } from '@nextui-org/react';
+import ProductCard from "./components/ProductCard";
 
 interface Product {
   Id: number;
   Nom: string;
   description: string;
   prix: number;
+  NomDuVendeur: string;
 }
 
 export default function Home() {
@@ -17,9 +17,16 @@ export default function Home() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch('/api/products');
-      const data = await response.json();
-      setProducts(data);
+      try {
+        const response = await fetch('/api/products');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Failed to fetch products:', error);
+      }
     };
 
     fetchProducts();
@@ -30,13 +37,16 @@ export default function Home() {
       <Header />
       <main className='mt-32'>
         <h1 className="text-gray-400">Site de E-commerce</h1>
-        <div className="products">
+        <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
           {products.map((product) => (
-            <div key={product.Id} className="product">
-              <h2>{product.Nom}</h2>
-              <p>{product.description}</p>
-              <p>Price: ${product.prix}</p>
-            </div>
+            <ProductCard
+              key={product.Id}
+              id={product.Id}
+              title={product.Nom}
+              description={product.description}
+              price={`$${product.prix}`}
+              seller={product.NomDuVendeur}
+            />
           ))}
         </div>
       </main>
